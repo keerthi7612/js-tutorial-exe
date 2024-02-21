@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>game HTML</title>
+  </head>
+  <body>
+    <div class="contanier">
+      <h1 class="num">GUESS ME😎</h1>
+      <p class="cmnt">GAME COMMENT</p>
+      <input type="text" class="inp_num" placeholder="Enter your number" />
+      <button class="sub_num">GO</button>
+    </div>
+    <script>
+      //DOM ELEMENT
+      const numVal = document.querySelector(".num");
+      const cmntVal = document.querySelector(".cmnt");
+      const inpVal = document.querySelector(".inp_num");
+      const btn = document.querySelector(".sub_num");
+      var ite = 0;
+
+      //1. generate number form 1 to 100
+
+      const rand = Math.trunc(Math.random() * 100 + 1);
+      console.log(rand);
+
+      //2. compare the given value
+
+      btn.addEventListener("click", () => {
+        //3. clickevent 5 time either victory or game over
+
+        ite++;
+        if (ite <= 3) {
+          const inpNum = Number(inpVal.value);
+          if (inpNum > rand) {
+            cmntVal.textContent = "Greater 😟";
+            console.log("Greater");
+          } else if (inpNum < rand) {
+            cmntVal.textContent = "Lesser 😓";
+            console.log("Lesser");
+          } else {
+            cmntVal.textContent = "victory 🏆";
+            console.log("victory ");
+          }
+          console.log(inpNum);
+        } else {
+          cmntVal.textContent = "Game over 💣";
+          console.log("game over");
+          btn.setAttribute("disable", "oops");
+        }
+      });
+    </script>
+  </body>
+</html>
