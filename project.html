@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>welcome to DOM</title>
+    <style>
+      .project {
+        width: 500px;
+        padding: 40px;
+        color: rgb(0, 0, 0);
+        background-color: rgb(103, 195, 238);
+      }
+      .project_close {
+        color: rgb(103, 195, 238);
+        background-color: black;
+        position: absolute;
+        right: 0px;
+      }
+      .project {
+        position: relative;
+        top: 150px;
+        left: 400px;
+      }
+      .project_login {
+        color: rgb(103, 195, 238);
+        background-color: white;
+        position: absolute;
+        bottom: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="project">
+      <h1 class="project_header">Topic</h1>
+      <p1 class="project_content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quo,
+        sequi iusto soluta fugit error perferendis. Consequatur ratione error
+        earum, aspernatur cumque ut tenetur ex, architecto suscipit sint
+        doloribus! Error?
+      </p1>
+      <p2>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia a
+        excepturi, nihil doloremque aut neque consectetur iure perferendis,
+        consequatur dolores doloribus? Temporibus aperiam exercitationem ducimus
+        repudiandae, quia dolores necessitatibus iusto.
+      </p2>
+      <button1 class="project_close" onclick="close_project()"> close </button1>
+
+      <button2 class="project_login" onclick="project_login()">login </button2>
+    </div>
+    <script>
+      function close_project() {
+        console.log("This project is close ");
+      }
+      function project_login() {
+        console.log("Here to login ");
+      }
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
