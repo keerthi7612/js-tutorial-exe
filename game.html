@@ -6,49 +6,93 @@
     <title>game HTML</title>
   </head>
   <body>
-    <div class="contanier">
+    <div1 class="container">
       <h1 class="num">GUESS ME😎</h1>
-      <p class="cmnt">GAME COMMENT</p>
-      <input type="text" class="inp_num" placeholder="Enter your number" />
-      <button class="sub_num">GO</button>
-    </div>
+    </div1>
+
+    <div2 class="player1">
+      <p class="player-1">player-1</p>
+      <h class="cmnt-1">GAME COMMENT</h>
+      <input type="text" class="inp_num1" placeholder="Enter your number" />
+      <button class="sub_num1">GO</button>
+    </div2>
+
+    <div3 class="player2">
+      <p class="player-2">player-2</p>
+      <h class="cmnt-2">GAME COMMENT</h>
+      <input type="text" class="inp_num2" placeholder="Enter your number" />
+      <button class="sub_num2">GO</button>
+    </div3>
     <script>
-      //DOM ELEMENT
+      // dom element
       const numVal = document.querySelector(".num");
-      const cmntVal = document.querySelector(".cmnt");
-      const inpVal = document.querySelector(".inp_num");
-      const btn = document.querySelector(".sub_num");
       var ite = 0;
 
-      //1. generate number form 1 to 100
+      //DOM ELEMENT FOR player1
+      const cmntVal1 = document.querySelector(".cmnt-1");
+      const inpVal1 = document.querySelector(".inp_num1");
+      const btn1 = document.querySelector(".sub_num1");
 
+      //dom element for player2
+      const cmntVal2 = document.querySelector(".cmnt-2");
+      const inpVal2 = document.querySelector(".inp_num2");
+      const btn2 = document.querySelector(".sub_num2");
+
+      //1. generate number form 1 to 100
       const rand = Math.trunc(Math.random() * 100 + 1);
       console.log(rand);
 
-      //2. compare the given value
-
-      btn.addEventListener("click", () => {
-        //3. clickevent 5 time either victory or game over
-
+      //2. compare the given value for particular time
+      function game1() {
         ite++;
-        if (ite <= 3) {
-          const inpNum = Number(inpVal.value);
+        if (ite <= 8) {
+          const inpNum = Number(inpVal1.value);
           if (inpNum > rand) {
-            cmntVal.textContent = "Greater 😟";
+            cmntVal1.textContent = "Greater 😟";
             console.log("Greater");
           } else if (inpNum < rand) {
-            cmntVal.textContent = "Lesser 😓";
+            cmntVal1.textContent = "Lesser 😓";
             console.log("Lesser");
           } else {
-            cmntVal.textContent = "victory 🏆";
+            cmntVal1.textContent = "victory 🏆";
             console.log("victory ");
           }
           console.log(inpNum);
         } else {
-          cmntVal.textContent = "Game over 💣";
+          cmntVal1.textContent = "Game over 💣";
           console.log("game over");
-          btn.setAttribute("disable", "oops");
+          btn1.setAttribute("disable", "oops");
         }
+      }
+
+      btn1.addEventListener("click", () => {
+        game1();
+      });
+
+      // player 2
+      function game2() {
+        ite++;
+        if (ite <= 8) {
+          const inpNum = Number(inpVal2.value);
+          if (inpNum > rand) {
+            cmntVal2.textContent = "Greater 😟";
+            console.log("Greater");
+          } else if (inpNum < rand) {
+            cmntVal2.textContent = "Lesser 😓";
+            console.log("Lesser");
+          } else {
+            cmntVal2.textContent = "victory 🏆";
+            console.log("victory ");
+          }
+          console.log(inpNum);
+        } else {
+          cmntVal2.textContent = "Game over 💣";
+          console.log("game over");
+          btn2.setAttribute("disable", "oops");
+        }
+      }
+      btn2.addEventListener("click", () => {
+        game2();
       });
     </script>
   </body>
